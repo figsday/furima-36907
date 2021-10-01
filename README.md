@@ -28,7 +28,7 @@
 | condition_id       | integer    | null: false                    |
 | shipping_fee_id    | integer    | null: false                    |
 | region_id          | integer    | null: false                    |
-| delivery_time_id      | integer    | null: false                    |
+| delivery_time_id   | integer    | null: false                    |
 
 # Association
 
