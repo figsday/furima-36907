@@ -24,11 +24,11 @@
 | image              | string     | null: false                    |
 | description        | text       | null: false                    |
 | price              | integer    | null: false                    |
-| category_id        | integer    | null: false, foreign_key: true |
-| condition_id       | integer    | null: false, foreign_key: true |
-| shipping_fee_id    | integer    | null: false, foreign_key: true |
-| region_id          | integer    | null: false, foreign_key: true |
-| delivery_time      | integer    | null: false, foreign_key: true |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| shipping_fee_id    | integer    | null: false                    |
+| region_id          | integer    | null: false                    |
+| delivery_time      | integer    | null: false                    |
 
 # Association
 
@@ -53,7 +53,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| region_id     | integer    | null: false, foreign_key: true |
+| region_id     | integer    | null: false                    |
 | city          | string     | null: false                    |
 | block_num     | string     | null: false                    |
 | building_name | string     |                                |
