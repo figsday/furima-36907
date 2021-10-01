@@ -13,22 +13,22 @@
 
 # Association
 - has_many :items
-- has_many :users
+- has_many :histories
 
 # items テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 | item_name          | string     | null: false                    |
 | image              | string     | null: false                    |
 | description        | text       | null: false                    |
 | price              | integer    | null: false                    |
-| category_id        | references | null: false, foreign_key: true |
-| condition_id       | references | null: false, foreign_key: true |
-| shipping_fee_id    | references | null: false, foreign_key: true |
-| ship_from_id       | references | null: false, foreign_key: true |
-| delivery_time      | references | null: false, foreign_key: true |
+| category_id        | integer    | null: false, foreign_key: true |
+| condition_id       | integer    | null: false, foreign_key: true |
+| shipping_fee_id    | integer    | null: false, foreign_key: true |
+| region_id          | integer    | null: false, foreign_key: true |
+| delivery_time      | integer    | null: false, foreign_key: true |
 
 # Association
 
@@ -39,8 +39,8 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user_id            | references | null: false, foreign_key: true |
-| item_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 # Association
 
@@ -53,7 +53,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| region_id     | references | null: false, foreign_key: true |
+| region_id     | integer    | null: false, foreign_key: true |
 | city          | string     | null: false                    |
 | block_num     | string     | null: false                    |
 | building_name | string     |                                |
