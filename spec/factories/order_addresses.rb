@@ -5,9 +5,7 @@ FactoryBot.define do
     region_id       { 2 }
     city            { Faker::Address.city }
     block_num       { Faker::Name.name }
-    building_name   { '' }
-    phone_num       { 12_345_678_900 }
-    item_id         { 1 }
-    user_id         { 1 }
+    building_name   { '建物名' }
+    phone_num       { '00000000000' }
   end
 end

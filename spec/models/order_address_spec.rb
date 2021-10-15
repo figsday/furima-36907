@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   before do
-    @order = FactoryBot.build(:order_address)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @order = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
+    sleep 0.1
   end
 
   describe '商品購入機能' do
@@ -28,7 +31,7 @@ RSpec.describe OrderAddress, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include('Postal code is invalid')
       end
-      it 'regionが空では保存できない' do
+      it 'regionが未選択だと出品できない' do
         @order.region_id = ''
         @order.valid?
         expect(@order.errors.full_messages).to include("Region can't be blank")
@@ -43,6 +46,10 @@ RSpec.describe OrderAddress, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Block num can't be blank")
       end
+      it 'building_nameが空でも保存できる' do
+        @order.building_name = ''
+        expect(@order).to be_valid
+      end
       it 'phone_numが空では保存できない' do
         @order.phone_num = ''
         @order.valid?
@@ -52,6 +59,26 @@ RSpec.describe OrderAddress, type: :model do
         @order.phone_num = '０９０-1234-5678'
         @order.valid?
         expect(@order.errors.full_messages).to include('Phone num is invalid')
+      end
+      it '電話番号は9桁以下では保存できない' do
+        @order.phone_num = '123456789'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Phone num is invalid')
+      end
+      it '電話番号は12桁以上では保存できない' do
+        @order.phone_num = '123456789000'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Phone num is invalid')
+      end
+      it 'user_idが空では保存できない' do
+        @order.user_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では保存できない' do
+        @order.item_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
