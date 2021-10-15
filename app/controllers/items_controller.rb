@@ -23,8 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user == current_user
-      render 'edit'
+    if @item.user == current_user && @item.order == nil
+      render 'edit' 
     else
       redirect_to root_path
     end
