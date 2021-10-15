@@ -26,7 +26,7 @@ RSpec.describe OrderAddress, type: :model do
       it '郵便番号は「3桁ハイフン4桁」の半角文字列でないと保存できない' do
         @order.postal_code = '００００００００'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Postal code is invalid")
+        expect(@order.errors.full_messages).to include('Postal code is invalid')
       end
       it 'regionが空では保存できない' do
         @order.region_id = ''
@@ -51,7 +51,7 @@ RSpec.describe OrderAddress, type: :model do
       it '電話番号は10桁以上11桁以内の半角数値でないと保存できない' do
         @order.phone_num = '０９０-1234-5678'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone num is invalid")
+        expect(@order.errors.full_messages).to include('Phone num is invalid')
       end
     end
   end
