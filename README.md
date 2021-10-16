@@ -13,7 +13,7 @@
 
 # Association
 - has_many :items
-- has_many :histories
+- has_many :orders
 
 # items テーブル
 
@@ -32,9 +32,9 @@
 # Association
 
 - belongs_to :user
-- has_one    :history
+- has_one    :order
 
-# histories テーブル
+# orders テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -56,8 +56,9 @@
 | city          | string     | null: false                    |
 | block_num     | string     | null: false                    |
 | building_name | string     |                                |
-| phone_num     | string     | null: false,                   |
+| phone_num     | string     | null: false                    |
+| order         | references | null: false, foreign_key: true |
 
 # Association
 
-- belongs_to :history
+- belongs_to :order
